@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>8 Puzzle Solver - RBFS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <h1>8 Puzzle Solver (RBFS Algorithm)</h1>
+
+  <div id="puzzle">
+    <!-- 3x3 grid -->
+    <table>
+      <tbody>
+        <!-- We'll fill cells dynamically -->
+        <!-- Each cell is a button -->
+        {% for i in range(3) %}
+        <tr>
+          {% for j in range(3) %}
+          <td><button class="tile" data-row="{{i}}" data-col="{{j}}"></button></td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div id="controls">
+    <button id="shuffleBtn">Shuffle</button>
+    <button id="solveBtn">Solve</button>
+    <button id="nextBtn" disabled>Next Step</button>
+    <button id="autoBtn" disabled>Auto Play</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+
+  <p id="status"></p>
+
+  <script src="{{ url_for('static', filename='js/puzzle.js') }}"></script>
+</body>
+</html>
